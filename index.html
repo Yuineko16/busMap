@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>OSM01</title>
+  <meta name="description" content="OSM01">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" type="images/logo.png" href="images/logo.png">
+  <!--CSS-->
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <!--OSM-->
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <link href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" rel='stylesheet' />
+</head>
+
+<body>
+  <!--ヘッダー ここから-->
+  <header class="page-header">
+  </header>
+  <!--ヘッダー ここまで-->
+
+  <div class='mainContainer'>
+    <!-- OSM -->
+    <div id='map'>
+      <script src="js/script.js"></script>
+    </div>
+
+    <!---経路提示-->
+    <div id='keiro'>
+      <script src="js/keiro.js"></script>
+      <div class='keiroDisplay'>
+        <input id="Button_Get" type="button" value="取 得" onclick="getData();" />
+        <div>経路</div>
+        <div id="output"></div>
+      </div>
+    </div>
+  </div>
+
+  <!--フッター ここから-->
+  <footer class="page-footer">
+    <div>
+      <p><small>&copy;2021 Yui Hojo</small></p>
+    </div>
+  </footer>
+  <!--フッター ここまで-->
+
+  <!--js-->
+  <script src="js/jquery.min.js"></script>
+
+
+
+</body>
