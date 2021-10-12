@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>OSM01</title>
+  <meta name="description" content="OSM01">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" type="images/logo.png" href="images/logo.png">
+  <!--CSS-->
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <!--OSM-->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+</head>
+
+<body>
+  <!--ヘッダー ここから-->
+  <header class="page-header">
+  </header>
+  <!--ヘッダー ここまで-->
+
+  <div class='mainContainer'>
+    <!-- OSM -->
+    <div id='map'>
+      <script src="js/script.js"></script>
+    </div>
+
+    <!---経路提示-->
+    <div id='keiro'>
+      <script src="js/keiro.js"></script>
+      <div class='keiroDisplay'>
+        <input id="Button_Get" type="button" value="取 得" onclick="getData();" />
+        <div>経路</div>
+        <div id="output"></div>
+        <!--
+          <p>----ルート情報----</p>
+          <p>日付:10-11-2021</p>
+          <p>運賃:350</p>
+          <p>出発時間:9時0分</p>
+          <p>到着時間:9時45分</p>
+          <p></p>
+          <p>-----ルート詳細-----</p>
+          <p>路線:宇都宮LRT</p>
+          <p>行先:芳賀・高根沢工業団地行</p>
+          <p>駅名:宇都宮駅(下り)</p>
+          <p>発車時間:9時0分</p>
+          <p>到着時間:9時45分</p>
+          <p>駅名:管理センター前(下り)</p>
+          <p></p>
+          <p>到着</p>
+        -->
+      </div>
+    </div>
+  </div>
+
+  <!--経路
+-----ルート情報-----
+日付:10-11-2021
+運賃:350
+出発時間:9時0分
+到着時間:9時45分
+-----ルート詳細-----
+路線:宇都宮LRT
+行先:芳賀・高根沢工業団地行
+駅名:宇都宮駅(下り)
+発車時間:9時0分
+到着時間:9時45分
+駅名:管理センター前(下り)
+-----乗り換え-----
+到着
+------------>
+
+  <!--フッター ここから-->
+  <footer class="page-footer">
+    <div>
+      <p><small>&copy;2021 Yui Hojo</small></p>
+    </div>
+  </footer>
+  <!--フッター ここまで-->
+
+  <!--js-->
+  <script src="js/jquery.min.js"></script>
+
+
+
+</body>
