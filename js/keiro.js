@@ -75,6 +75,6 @@ function getTime(x,y){
         }
       }
     }
-    xmlhttp.open("GET", "LRT.xml");
+    xmlhttp.open("GET", "result.xml");
     xmlhttp.send();
   }
