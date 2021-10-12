@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+body{
+  font-family: "Noto Sans JP L",sans-serif;
+  line-height: 1.7;
+  color: #000
+}
+a{
+	color: #000;
+  text-decoration: none;
+}
+
+p{
+  font-size: 1.2em;
+}
+
+li{
+  list-style-type: none;
+}
+
+h2{
+  font-family: "Agency FB";
+  text-transform: uppercase;  /*すべての文字を大文字にする*/
+  font-size: 60px;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+h3{
+  font-family: "Noto Sans JP M";
+  font-size: 22px;
+}
+
+strong{
+  font-family: "Noto Sans JP M";
+  background: linear-gradient(transparent 85%, #ccc 80%);
+}
+
+/*-----------------------------------------------------------*/
+
+.mainContainer{
+  display: flex;
+  flex-direction: row;
+}
+
+
+#map {
+  width: 70%; 
+  height: 1000px;
+}
+
+#keiro{
+  width: 30%;
+  background-color: #aaa;
+}
+
+.keiroDisplay{
+  padding: 5%;
+}
+
+#Button_Get{
+  background-color: aqua;
+  text-align: center;
+  width: 70px;
+  height: 40px;
+}
+
+
+
+/*-----------------------------------------------------------*/
+
+div.leaflet-popup{
+  width: 290px;
+}
+div.leaflet-popup-content-wrapper,div.leaflet-popup-tip{
+  background-color: #ffdf76;
+}
+a.leaflet-popup-close-button{
+  width: 20px;
+  color: rgb(255, 123, 0) !important;
+}
+
+.popup-title{
+  font-size: 2em;
+}
