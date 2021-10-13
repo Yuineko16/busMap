@@ -51,7 +51,7 @@ L.geoJson(
   {
     onEachFeature: function(feature, layer){
       if (feature.properties && feature.properties.title && feature.properties.description) {
-        layer.bindPopup("<p class='popup-title '><b>" + feature.properties.title +"</b></p><p><img src="+ feature.properties.image +" alt='画像' width='250px'></p><p>"+feature.properties.description + "</p>");
+        layer.bindPopup("<p class='popup-title '><b>" + feature.properties.title +"</b></p><p><img src="+ feature.properties.image +" alt='画像' class='popup-img'></p><p>"+feature.properties.description + "</p>");
       }
     }
     , pointToLayer: function( feature, latlng ) {
@@ -85,7 +85,8 @@ L.geoJson(
   LrtRoute, 
   {
     color: 'orange',
-    opacity: 0.8,
+    opacity: 0.6,
+    weight: 5,
     onEachFeature: function onEachFeature(feature,layer){
       //if(feature.properties && feature.properties.popupContent){
         //layer.bindPopup(feature.properties.popupContent);
@@ -97,7 +98,8 @@ L.geoJson(
   bRoute, 
   {
     color: 'aqua',
-    opacity: 0.8,
+    opacity: 0.6,
+    weight: 4,
     onEachFeature: function onEachFeature(feature,layer){
       //if(feature.properties && feature.properties.popupContent){
         //layer.bindPopup(feature.properties.popupContent);
