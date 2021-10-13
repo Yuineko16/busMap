@@ -51,7 +51,7 @@ L.geoJson(
   {
     onEachFeature: function(feature, layer){
       if (feature.properties && feature.properties.title && feature.properties.description) {
-        layer.bindPopup("<p class='popup-title '><b>" + feature.properties.title +"</b></p><p><img src="+ feature.properties.image +" alt='画像' class='popup-img'></p><p>"+feature.properties.description + "</p>");
+        layer.bindPopup("<p class='popup-title '><b>" + feature.properties.title +"</b></p><img src="+ feature.properties.image +" alt='画像' class='popup-img'><p>"+feature.properties.description + "</p>");
       }
     }
     , pointToLayer: function( feature, latlng ) {
