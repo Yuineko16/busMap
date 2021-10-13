@@ -25,7 +25,7 @@ xmlhttp.onreadystatechange = function () {
 
       elem.innerHTML += "<div class='keiro-content'><p class='keiro-title'>ルート情報</p>"
         + "<p>日付 : " + date[0].textContent + "</p>"
-        + "<p>運賃" + " : " + cents[0].textContent + "</p>"
+        + "<p>運賃" + " : " + cents[0].textContent + "円</p>"
         + "<p>出発時間" + " : " + getTime(startTime[0].textContent, date[1].textContent) + "</p>"
         + "<p>到着時間" + " : " + getTime(endTime[0].textContent, date[1].textContent) + "</p>";
 
@@ -50,7 +50,11 @@ xmlhttp.onreadystatechange = function () {
               elem.innerHTML += "<p>移動手段" + " : " + "徒歩" + "</p>"
             }
             else {
-              elem.innerHTML += "<p>移動手段" + " : " + "バス・LRT" + "</p>"
+              if(route[j].textContent == "新設B路線"){
+                elem.innerHTML += "<p>移動手段" + " : " + "バス" + "</p>"}
+              else if(route[j].textContent == "宇都宮LRT"){
+                elem.innerHTML += "<p>移動手段" + " : " + "LRT" + "</p>"
+              }
               elem.innerHTML += "<p>路線" + " : " + route[j].textContent + "</p>"
               + "<p>行先" + " : " + headsign[j].textContent + "</p>"
             }
@@ -64,7 +68,7 @@ xmlhttp.onreadystatechange = function () {
           elem.innerHTML += "<p>駅名" + " : " + name[i].textContent + "</p>"
 
           if (departure[i].textContent != "" && departure[i].textContent != departure[i + 1].textContent) {
-            elem.innerHTML += "<p>発車時間" + " : " + getTime(departure[i].textContent, date[1].textContent) + "</p>";
+            elem.innerHTML += "<p>出発時間" + " : " + getTime(departure[i].textContent, date[1].textContent) + "</p>";
           }
 
           
