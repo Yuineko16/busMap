@@ -74,10 +74,12 @@ strong{
 div.leaflet-popup{
   width: 290px;
   padding: 0;
+  margin:　0;
 }
 div.leaflet-popup-content-wrapper,div.leaflet-popup-tip{
   background-color: #ffdf76;
 }
+
 a.leaflet-popup-close-button{
   width: 20px;
   color: rgb(255, 123, 0) !important;
