@@ -12,6 +12,8 @@ a{
 
 p{
   font-size: 1.2em;
+  font-weight: bold;
+  padding: 0 10px;
 }
 
 li{
@@ -51,11 +53,11 @@ strong{
 
 #keiro{
   width: 30%;
-  background-color: #aaa;
+  background-color: #fff4d8;
 }
 
 .keiroDisplay{
-  padding: 5%;
+  padding: 3%;
 }
 
 #Button_Get{
@@ -82,4 +84,47 @@ a.leaflet-popup-close-button{
 
 .popup-title{
   font-size: 2em;
+}
+
+.keiro_title{
+  font-size: 1.8em;
+  font-weight: bold;
+  background-color: #3b602d;
+  border-radius: 5px;
+  color: #fbe9a9;
+  padding: 8px 5px 5px 5px;
+  text-align: center;
+}
+
+.keiro_content{
+  margin: 20px 0;
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 0 0 10px 0;
+  box-shadow: 6px 6px 0 1px #e97e7ab2;
+}
+
+
+
+
+/*メディアクエリ
+-------------------------------------------------------------------------------*/
+/*スマホ・タブレット用配置*/
+@media screen and (max-width: 900px){
+  
+.mainContainer{
+  display: flex;
+  flex-direction: column;
+}
+#map {
+  width: 100%; 
+  height: 300px;
+}
+
+#keiro{
+  width: 100%;
+  background-color: #fff4d8;
+}
+
+
 }
