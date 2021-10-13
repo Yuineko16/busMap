@@ -1,6 +1,12 @@
 window.onload = function () {
-  var map = L.map('map').setView([36.5603916510293,139.9546031898826], 13);
-
+  var device_width = $(window).width();
+  var view = [36.5603916510293,139.9546031898826];
+  var zoom = 13;
+  if(device_width < 600){
+    zoom = 12;
+  }
+  var map = L.map('map').setView(view, zoom);
+  
  // 描画
  var tileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
   attribution: '© <a href="http://osm.org/copyright">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
@@ -29,9 +35,17 @@ window.onload = function () {
     iconAnchor: [10, 30],
     popupAnchor: [0, -40] 
   });
+  var Pin = L.icon({
+    iconUrl: 'pin.png',
+    iconRetinaUrl: 'pin.png',
+    iconSize: [25, 25],
+    iconAnchor: [12.5, 55],
+    popupAnchor: [0, -40] 
+  });
 
 //引用元 https://qiita.com/TakeshiNickOsanai/items/783caa9f31bcf762da16
 tileLayer.addTo(map);
+
 L.geoJson(
   LRTstops,
   {
@@ -54,11 +68,23 @@ L.geoJson(
   }
 ).addTo(map);
 
+L.geoJson(
+  LRTstops,
+  {
+    pointToLayer: function( feature, latlng ) {
+      var pin = Pin; 
+      if ( feature.properties.pin==1 ) {
+        return L.marker( latlng, { icon: Pin });
+      }
+    }
+  }
+).addTo(map);
+
 
 L.geoJson(
   LrtRoute, 
   {
-    color: 'yellow',
+    color: 'orange',
     opacity: 0.8,
     onEachFeature: function onEachFeature(feature,layer){
       //if(feature.properties && feature.properties.popupContent){
@@ -89,7 +115,8 @@ var LRTstops = [{
           "title": "宇都宮駅",
           "description": "宇都宮の中心にある駅です",
           "image": "01.jpg",
-          "category": "LRT"
+          "category": "LRT",
+          "pin": 1
         },
         "geometry": {
           "coordinates": [139.89966, 36.55930,],
@@ -149,8 +176,8 @@ var LRTstops = [{
       {
         "type": "Feature",
         "properties": {
-          "title": "宇大工学部前",
-          "description": "宇大工学部前です",
+          "title": "ベルモール前",
+          "description": "ベルモール前です",
           "category": "LRT"
         },
         "geometry": {
@@ -161,8 +188,8 @@ var LRTstops = [{
       {
         "type": "Feature",
         "properties": {
-          "title": "平石",
-          "description": "平石です",
+          "title": "平出町",
+          "description": "平出町です",
           "category": "LRT"
         },
         "geometry": {
@@ -173,8 +200,8 @@ var LRTstops = [{
       {
         "type": "Feature",
         "properties": {
-          "title": "平石中央小学校前",
-          "description": "平石中央小学校前です",
+          "title": "下平出",
+          "description": "下平出です",
           "category": "LRT"
         },
         "geometry": {
@@ -185,8 +212,8 @@ var LRTstops = [{
       {
         "type": "Feature",
         "properties": {
-          "title": "飛山城跡",
-          "description": "飛山城跡です",
+          "title": "下竹下",
+          "description": "下竹下です",
           "category": "LRT"
         },
         "geometry": {
@@ -197,8 +224,8 @@ var LRTstops = [{
       {
         "type": "Feature",
         "properties": {
-          "title": "清陵高校前",
-          "description": "清陵高校前です",
+          "title": "作新学院北",
+          "description": "作新学院北です",
           "category": "LRT"
         },
         "geometry": {
@@ -209,8 +236,8 @@ var LRTstops = [{
       {
         "type": "Feature",
         "properties": {
-          "title": "清原地区市民センター前",
-          "description": "清原地区市民<br>センター前です",
+          "title": "清原管理センター前",
+          "description": "清原管理センター前です",
           "category": "LRT"
         },
         "geometry": {
@@ -221,8 +248,8 @@ var LRTstops = [{
       {
         "type": "Feature",
         "properties": {
-          "title": "グリーンスタジアム前",
-          "description": "グリーンスタジアム前です",
+          "title": "清原工業団地北",
+          "description": "清原工業団地北です",
           "category": "LRT"
         },
         "geometry": {
@@ -233,8 +260,8 @@ var LRTstops = [{
       {
         "type": "Feature",
         "properties": {
-          "title": "ゆいの杜西",
-          "description": "ゆいの杜西です",
+          "title": "テクノポリス西",
+          "description": "テクノポリス西です",
           "category": "LRT"
         },
         "geometry": {
@@ -245,8 +272,8 @@ var LRTstops = [{
       {
         "type": "Feature",
         "properties": {
-          "title": "ゆいの杜中央",
-          "description": "ゆいの杜中央です",
+          "title": "テクノポリス中央",
+          "description": "テクノポリス中央です",
           "category": "LRT"
         },
         "geometry": {
@@ -257,8 +284,8 @@ var LRTstops = [{
       {
         "type": "Feature",
         "properties": {
-          "title": "ゆいの杜東",
-          "description": "ゆいの杜東です",
+          "title": "テクノポリス東",
+          "description": "テクノポリス東です",
           "category": "LRT"
         },
         "geometry": {
@@ -281,8 +308,8 @@ var LRTstops = [{
       {
         "type": "Feature",
         "properties": {
-          "title": "芳賀町工業団地管理<br>センター前",
-          "description": "芳賀町工業団地管理センター前です",
+          "title": "管理センター前",
+          "description": "管理センター前です",
           "category": "LRT"
         },
         "geometry": {
@@ -305,8 +332,8 @@ var LRTstops = [{
       {
         "type": "Feature",
         "properties": {
-          "title": "芳賀・高根沢工業団地",
-          "description": "芳賀・高根沢工業団地です",
+          "title": "本田技研北門",
+          "description": "本田技研北門です",
           "category": "LRT"
         },
         "geometry": {
@@ -379,7 +406,8 @@ var LRTstops = [{
         "properties": {
           "title": "中外製薬工業宇都宮工場前",
           "description": "中外製薬工業宇都宮工場前です",
-          "category": "B"
+          "category": "B",
+          "pin": 1
         },
         "geometry": {
           "coordinates": [139.97943,36.54368],
