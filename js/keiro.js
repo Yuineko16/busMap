@@ -8,6 +8,12 @@ function getTime(x, y) {
   }
   return (t / 60 | 0) + ":" + m;
 }
+function getMinute(x, y) {
+  var elem = document.getElementById("output");
+  var t = (((x - y) / 60000 | 0) + 540)
+
+  return  t ;
+}
 
 var xmlhttp = new XMLHttpRequest();
 
@@ -47,35 +53,47 @@ xmlhttp.onreadystatechange = function () {
           if (i % 2 == 0) {
 
             if (route[j].textContent == "" && headsign[j].textContent == "") {
-              elem.innerHTML += "<p>移動手段" + " : " + "徒歩" + "</p>"
+              elem.innerHTML += "<div class='keiro-content'><p>移動手段" + " : " + "徒歩 "
+               + (getMinute(departure[i+1].textContent, date[1].textContent)-getMinute(departure[i].textContent, date[1].textContent)) + "分</p></div>";
             }
             else {
               if(route[j].textContent == "新設B路線"){
-                elem.innerHTML += "<p>移動手段" + " : " + "バス" + "</p>"}
-              else if(route[j].textContent == "宇都宮LRT"){
-                elem.innerHTML += "<p>移動手段" + " : " + "LRT" + "</p>"
+                elem.innerHTML += "<div class='keiro-content'><p>移動手段" + " : " + "バス" + "</p>"
+                 + "<p>路線" + " : " + route[j].textContent + "</p>"
+                 + "<p>行先" + " : " + headsign[j].textContent + "</p>"
+                 + "<p>駅名" + " : " + name[i].textContent + "</p>"
+                 + "<p>出発時間" + " : " + getTime(departure[i].textContent, date[1].textContent) + "</p></div>";
+              
               }
-              elem.innerHTML += "<p>路線" + " : " + route[j].textContent + "</p>"
-              + "<p>行先" + " : " + headsign[j].textContent + "</p>"
+              else if(route[j].textContent == "宇都宮LRT"){
+                elem.innerHTML += "<div class='keiro-content'><p>移動手段" + " : " + "LRT" + "</p>"
+                + "<p>路線" + " : " + route[j].textContent + "</p>"
+                 + "<p>行先" + " : " + headsign[j].textContent + "</p>"
+                 + "<p>駅名" + " : " + name[i].textContent + "</p>"
+                 + "<p>出発時間" + " : " + getTime(departure[i].textContent, date[1].textContent) + "</p></div>";
+              }
+
             }
             j++;
           }
 
+          /*if (departure[i].textContent != "" && departure[i].textContent != departure[i + 1].textContent) {
+            elem.innerHTML += "<div class='keiro-content'><p>駅名" + " : " + name[i].textContent + "</p>"
+             + "<p>出発時間" + " : " + getTime(departure[i].textContent, date[1].textContent) + "</p></div>";
+          }*/
+
           if (arrival[i].textContent != "" && arrival[i].textContent != arrival[i - 1].textContent) {
-            elem.innerHTML += "<p>到着時間" + " : " + getTime(arrival[i].textContent, date[1].textContent) + "</p>";
+            elem.innerHTML += "<div class='keiro-content'><p>目的地</p>"
+             + "<p>駅名" + " : " + name[i].textContent + "</p>"
+             + "<p>到着時間" + " : " + getTime(arrival[i].textContent, date[1].textContent) + "</p></div>";
           }
-
-          elem.innerHTML += "<p>駅名" + " : " + name[i].textContent + "</p>"
-
-          if (departure[i].textContent != "" && departure[i].textContent != departure[i + 1].textContent) {
-            elem.innerHTML += "<p>出発時間" + " : " + getTime(departure[i].textContent, date[1].textContent) + "</p>";
-          }
-
           
 
           if (i % 2 == 1 &&  i!=name.length-1) {
-            elem.innerHTML += "<div class='blank'></div>";
-            elem.innerHTML += "</div><p>-----乗り換え-----</p>";
+            elem.innerHTML += "<div class='blank'></div>"
+             + "</div><p>-----乗り換え-----</p>"
+             + "<div class='blank'></div>";
+            
           }
         }
       }
