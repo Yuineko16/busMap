@@ -107,8 +107,8 @@ a.leaflet-popup-close-button{
   margin: 20px 0;
   background-color: #ffffff;
   border-radius: 5px;
-  padding: 0 0 10px 0;
-  box-shadow: 6px 6px 0 1px #e97e7ab2;
+  padding: 10px 0;
+  box-shadow: 4px 6px 0 1px #e97e7ab2;
 }
 
 .keiro-label{
